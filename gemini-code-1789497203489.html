@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Византия при Юстиниане I — Презентация</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f111a;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Container for Slides */
+    .presentation-container {
+      width: 90vw;
+      max-width: 1100px;
+      height: 80vh;
+      max-height: 650px;
+      background: #faf8f5;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateX(30px);
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    /* Slide Themes & Layouts */
+    .slide-dark {
+      background-color: #12132b;
+      color: #fff;
+    }
+
+    .badge {
+      align-self: flex-start;
+      border: 2px solid #e08b2d;
+      color: #e08b2d;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1.slide-title {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #e08b2d;
+      font-weight: 700;
+    }
+
+    .slide-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #cccccc;
+      max-width: 800px;
+    }
+
+    h2.slide-header {
+      font-size: 2rem;
+      color: #2b2b2b;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #e08b2d;
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    .slide-dark h2.slide-header {
+      color: #ffffff;
+    }
+
+    /* Grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid #e08b2d;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .img-box {
+      width: 100%;
+      max-height: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    blockquote {
+      font-style: italic;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      border-left: 4px solid #e08b2d;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #444;
+    }
+
+    .author {
+      font-weight: bold;
+      font-style: normal;
+      color: #e08b2d;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Controls Bar */
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(0,0,0,0.6);
+      padding: 8px 20px;
+      border-radius: 30px;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    .btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .counter {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presentation-container">
+    
+    <!-- Slide 1 -->
+    <div class="slide slide-dark active">
+      <div class="badge">История Византийской империи</div>
+      <h1 class="slide-title">Византия при Юстиниане I</h1>
+      <p class="slide-subtitle">Зенит могущества и славы: эпоха великих законов, грандиозных реформ и масштабных завоеваний (527–565 гг.)</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2 class="slide-header">Портрет Юстиниана I</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Происхождение и путь к власти</h3>
+          <p>Юстиниан происходит из незнатной крестьянской семьи. Его дядя Юстин прошел путь от простого солдата до командира императорской гвардии и взошел на трон. Дядя приблизил племянника, сделав его главным советником и соправителем. После смерти Юстина Юстиниан принял полную власть над империей.</p>
+        </div>
+        <div class="card">
+          <h3>Качества великого правителя</h3>
+          <p>По свидетельствам современников, Юстиниан отличался «быстрым и изобретательным умом, неутомимым в исполнении замыслов». Он правил «железной рукой», лично вникая во все сферы государственного управления — от дипломатии и права до военной стратегии и строительства.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2 class="slide-header">Императрица Феодора</h2>
+      <div class="grid-2">
+        <div class="img-box">
+          <img src="https://www.turismo.ra.it/wp-content/uploads/2020/12/basilica-di-san-vitale-particolare-corteo-teodora-e1640699455799.jpg" alt="Императрица Феодора">
+        </div>
+        <div>
+          <div class="card" style="margin-bottom: 12px;">
+            <h3>Супруга и соправительница</h3>
+            <p>Юстиниан взяв в жёны Феодору, презрел сословные условности, так как она происходила из простой семьи и была актрисой.</p>
+          </div>
+          <div class="card" style="margin-bottom: 12px;">
+            <h3>Ум и влияние</h3>
+            <p>Феодора отличалась редкой красотой, острым умом и сильным характером. Она стала верным соратником мужа и оказывала глубокое влияние на политику государства.</p>
+          </div>
+          <div class="card">
+            <h3>Государственная мудрость</h3>
+            <p>К её советам император прислушивался при принятии важнейших решений, касающихся управления и внешней политики.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2 class="slide-header">Кодекс Юстиниана</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Систематизация права</h3>
+          <p>По приказу императора лучшие византийские юристы собрали и переработали многовековой массив римских законов.</p>
+        </div>
+        <div class="card">
+          <h3>Защита человека</h3>
+          <p>Статьи Кодекса гарантировали защиту жизни и человеческого достоинства всех свободных граждан империи.</p>
+        </div>
+        <div class="card">
+          <h3>Регулирование имущества</h3>
+          <p>Чётко регламентировались права собственности, наследственные и договорные имущественные отношения.</p>
+        </div>
+        <div class="card">
+          <h3>Мировое значение</h3>
+          <p>Кодекс Юстиниана стал фундаментом для формирования современного романо-германского права в Европе.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2 class="slide-header">Восстание «Ника» (532 г.)</h2>
+      <div class="grid-2">
+        <div class="img-box">
+          <img src="https://www.worldhistory.org/uploads/images/7817.jpg" alt="Мозаика византийского периода">
+        </div>
+        <div class="card">
+          <h3>Причины и размах кризиса</h3>
+          <p>Через пять лет после воцарения Юстиниана рост налогов и произвол чиновников спровоцировали крупнейшее народное восстание в Константинополе.</p>
+          <br>
+          <p>Движение получила название «Ника» (от греческого «Побеждай!»). Мятежники захватили большую часть столицы и подожгли правительственные здания.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <h2 class="slide-header">Решимость императрицы</h2>
+      <p style="font-size: 1.1rem; color: #666;">В момент, когда придворные советовали бежать из города, Феодора произнесла легендарные слова:</p>
+      <blockquote>
+        «Если ты хочешь бежать, иди: средства в твоих руках; суда готовы, море открыто. Но я остаюсь. Я люблю старое изречение, что пурпур — лучший саван!»
+        <span class="author">— Императрица Феодора</span>
+      </blockquote>
+      <div class="card">
+        <p>Вдохновлённый мужеством жены, Юстиниан предпринял решительные шаги: верные войска заманили мятежников на ипподром и подавили бунт.</p>
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <h2 class="slide-header">Внутренние реформы</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Защита крестьян</h3>
+          <p>Император запретил знати и крупным землевладельцам насильственно захватывать земли свободных крестьян и подчинять их себе.</p>
+        </div>
+        <div class="card">
+          <h3>Администрация</h3>
+          <p>Было сокращено число провинций для предотвращения сепаратизма, однако полномочия наместников существенно расширились.</p>
+        </div>
+        <div class="card">
+          <h3>Налоги и контроль</h3>
+          <p>Усилился жесткий контроль над сбором налогов и расходованием государственных средств, пресекались злоупотребления.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <h2 class="slide-header">Военные завоевания</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Восстановление империи</h3>
+          <p>Главной идеей Юстиниана было возрождение былого величия единой Римской империи.</p>
+        </div>
+        <div class="card">
+          <h3>Возвращение римских земель</h3>
+          <p>Талантливые полководцы Юстиниана (Велизарий и Нарсес) смогли вернуть утраченные византийские провинции и отвоевать ключевые территории бывшей Западной Римской империи: Северную Африку, Италию и юг Испании.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <h2 class="slide-header">Инфраструктура и оборона</h2>
+      <div class="grid-2">
+        <div class="img-box">
+          <img src="https://fashionhistory.fitnyc.edu/wp-content/uploads/2021/03/mosaic-featured-1280x640.jpg" alt="Император со свитой">
+        </div>
+        <div>
+          <div class="card" style="margin-bottom: 12px;">
+            <h3>Укрепление границ</h3>
+            <p>Вдоль всех внешних рубежей империи возводилась мощная система крепостей и оборонительных валов.</p>
+          </div>
+          <div class="card" style="margin-bottom: 12px;">
+            <h3>Развитие торговли</h3>
+            <p>Активно прокладывались новые мощеные дороги, строением мостов перекрывались горные реки, а в пустынях выкапывались глубокие колодцы.</p>
+          </div>
+          <div class="card">
+            <h3>Беспрепятственный транзит</h3>
+            <p>Данные меры обеспечивали быстрый приток купеческих товаров и сырья в столицу и ключевые центры страны.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide slide-dark">
+      <h1 class="slide-title">Наследие эпохи Юстиниана</h1>
+      <p class="slide-subtitle" style="font-size: 1.3rem; line-height: 1.8;">
+        Правление Юстиниана I стало «золотым веком» Византии. Несмотря на то, что после его смерти удержать все завоеванные земли оказалось сложно, Кодекс Юстиниана и шедевры архитектуры (включая собор Святой Софии) навсегда вошли в сокровищницу мировой цивилизации.
+      </p>
+    </div>
+
+    <!-- Control Controls -->
+    <div class="controls">
+      <button class="btn" id="prevBtn">&#9664;</button>
+      <span class="counter" id="counter">1 / 10</span>
+      <button class="btn" id="nextBtn">&#9654;</button>
+    </div>
+
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counter = document.getElementById('counter');
+    let currentIndex = 0;
+
+    function updateSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlide(currentIndex);
+    });
+
+    // Управление клавишами (стрелки влево / вправо / пробел)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextBtn.click();
+      } else if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>
